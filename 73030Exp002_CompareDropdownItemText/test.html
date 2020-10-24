@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>73030Exp002</title>
+
+<script>
+
+
+function myFunction() {
+	
+  var sel1 = document.getElementById("sel1");
+	  //set up output string
+
+  	var fruits = ["Item2", "Item9"];
+	document.getElementById("demo").innerHTML = fruits;	  
+	  
+	  //step through options
+	  for (i = 0; i < sel1.length; i++){
+	   //examine current option
+	   currentOption = sel1[i];
+	   //print it if it has been selected
+	   if (currentOption.text > "Item2" && currentOption.text < "Item9"){			
+		    fruits.push(currentOption.text);
+	   } // end if
+	  } // end for loop
+	
+
+
+	
+	
+
+    document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+
+
+</head>
+
+
+
+
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The push method appends a new element to an array.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+
+
+ <select id="sel1"  multiple = "multiple"    size = "10" >
+  <option value="item1">Item1</option>
+  <option value="item2">Item2</option>
+  <option value="item3">Item3</option>
+  <option value="item4">Item4</option>
+  <option value="item5">Item5</option>
+  <option value="item6">Item6</option>
+  <option value="item7">Item7</option>
+  <option value="item8">Item8</option>
+  <option value="item9">Item9</option>
+  <option value="item10">Item10</option>
+  <option value="item11">Item11</option>
+  <option value="item12">Item12</option>
+</select> 
+
+
+
+</body>
+</html>

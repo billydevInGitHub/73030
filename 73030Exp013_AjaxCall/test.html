@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+
+
+<body>
+
+this is pure javascript ajax call page
+
+
+
+<script>
+function myFunction() {
+	alert("in login check");
+
+
+	var httpRequest= new XMLHttpRequest(); 
+	
+	
+	httpRequest.onreadystatechange = function() {
+		alert("in call back");
+	    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+	      alert("Succeed : response back from server:"+httpRequest.responseText);
+	    }else{
+	       alert("Error or failure: response from server:"+httpRequest.responseText); 
+	    }
+	}
+	//httpRequest.open("GET", "http://localhost:8180/api/getListOfDTAppls/");
+	//httpRequest.setRequestHead("Authorization":("Bearer "+localStorage.getItem('jwt_token')));
+	httpRequest.open("GET", "http://localhost:8180/posts");
+	httpRequest.send();
+
+}
+</script>
+
+<button onclick="myFunction()">Try it</button>
+</body>
+</html>

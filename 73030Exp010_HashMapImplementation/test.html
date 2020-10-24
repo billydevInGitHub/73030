@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>73030Exp010</title>
+<script>
+// refer to: https://stackoverflow.com/questions/8877666/how-is-a-javascript-hash-map-implemented
+function test(){
+var map= {'m1': 12,'m2': 13,'m3': 14,'m4': 15}
+     alert(map['m3']);
+}
+
+function testMySelf(){
+	var map= {'m1': 12,'m2': 13,'m3': 14,'m4': 15}
+	  // map['m3']+="add new stuff";  //string worked
+	     map['m3']+=5;
+	     alert(map['m3']);   //number also worked!!
+	     
+	     map['m5']="newly inserted";
+	     alert(map['m5']);
+	}
+</script>
+</head>
+
+<body>
+<input type="button" value="click" onclick="test()"/>
+
+<input type="button" value="clickMySelf" onclick="testMySelf()"/>
+</body>
+</html>
