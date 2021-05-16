@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="test">click me</button>
+</body>
+<script>
+    var my_element=document.getElementById("test");
+    my_element.addEventListener('click', (e) => {
+        console.log(this.className)           // WARNING: `this` is not `my_element`
+        console.log(this.id)
+        console.log(e.currentTarget === this) // logs `false`
+    })
+</script>
+</html>
