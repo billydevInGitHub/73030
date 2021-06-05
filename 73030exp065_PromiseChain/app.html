@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta lang="en"/>
+    <title>Test</title>
+</head>
+<script>
+    var getJSON=function(url){
+        var promise=new Promise(function(resolve, reject){
+            var client=new XMLHttpRequest();
+            client.open("GET", url);
+            client.onreadystatechange=handler;
+            client.responseType="json";
+            client.setRequestHeader("Accept", "application/json");
+            client.send();
+            function handler(){
+                if(this.readyState !==4){
+                    return;
+                }
+                if(this.status===200){
+                    resolve(this.response);
+                }else {
+                    reject(new Error(this.statusText));
+                }
+            };
+        });
+        return promise;
+    };
+
+    getJSON("http://localhost:8080/api/posts").then(function (json) {
+        let contentString=JSON.stringify(JSON.parse(JSON.stringify(json))["content"]);
+        console.log('contents in first  then:' + contentString);
+        let title=JSON.stringify(JSON.parse(contentString)[0]["title"]);
+        console.log('title in first  then:' + title);
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                let string = JSON.stringify(json);
+                string += "bar";
+                resolve(string);
+            }, 1)
+        }).then(function (string) {
+            setTimeout(function () {
+                string += "baz";
+                console.log("within second then , string:" + string);
+            }, 1);
+            return string;
+        }).then(function (string) {
+            console.log("Last Then:  oops... didn't bother to instantiate and return " +
+                "a promise in the prior then so the sequence may be a bit " +
+                "surprising");
+
+            // Note that `string` will not have the 'baz' bit of it at this point. This
+            // is because we mocked that to happen asynchronously with a setTimeout function
+            console.log("string in third then:" + string); // foobar
+        }).then(function (string) {
+            console.log("in forth then:" + string);
+        });
+    }).catch(error => console.log(error));
+</script>
+</html>

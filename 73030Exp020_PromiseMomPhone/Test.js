@@ -1,6 +1,6 @@
 var momsPromise = new Promise(function(resolve, reject) {
     momsSavings = 20000;
-    priceOfPhone = 600;
+    priceOfPhone = 600000;
     if (momsSavings > priceOfPhone) {
       resolve({
         brand: "iphone",
@@ -35,7 +35,8 @@ var momsPromise = new Promise(function(resolve, reject) {
 //     );
 //   });
 
-
+// console.log(momsPromise);
+momsPromise;
   momsPromise.then(
     function(value) {
       console.log("Hurray I got this phone as a gift ", JSON.stringify(value));

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Click web page to test!
+</body>
+<script>
+    var handler={
+        id:"123456",
+        init: function(){
+            document.addEventListener("click",
+                event=>{this.doSomething(event.type); console.log("within arrow function , this.id "+this.id)}, false);
+        },
+        doSomething:function(type){
+            console.log("Handling "+type+" for "+this.id);
+        }
+    };
+handler.init();
+</script>
+</html>

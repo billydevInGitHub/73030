@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function myFunction(e) {
+        // if (this.style.display === "none") {
+        //     this.style.display = "block";
+        // } else {
+        //     this.style.display = "none";
+        // }
+        if (e.currentTarget.nextSibling.style.display=== "none") {
+                 e.currentTarget.nextSibling.style.display = "block";
+             } else {
+                e.currentTarget.nextSibling.style.display = "none";
+             }
+    }
+
+
+    function showCustomers(customers, targetList) {
+        // Your code goes here
+        for (let i = 0; i < customers.length; i++) {
+            let li=document.createElement("li");
+            let tagName = document.createElement("p");
+            let name = document.createTextNode(customers[i].name);
+            tagName.addEventListener('click', myFunction);
+            tagName.appendChild(name);
+            li.appendChild(tagName);
+
+            let tagEmail = document.createElement("p");
+            let email = document.createTextNode(customers[i].email);
+            tagEmail.appendChild(email);
+            li.appendChild(tagEmail);
+            targetList.appendChild(li);
+        }
+
+    }
+
+    document.body.innerHTML = `
+<div>
+  <ul id="customers">
+  </ul>
+</div>
+`;
+    let customers = [{name: "John", email: "john@example.com"},
+        {name: "Mary", email: "mary@example.com"}];
+    showCustomers(customers, document.getElementById("customers"));
+
+    let customerParagraph = document.querySelectorAll("li > p")[0];
+    if(customerParagraph) {
+        customerParagraph.click();
+    }
+    console.log(document.body.innerHTML);
+</script>
+</body>
+</html>

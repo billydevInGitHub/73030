@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+    // https://stackoverflow.com/questions/40816999/using-queryselectorall-to-target-nested-elements  <--get embedded elements
+    // https://stackoverflow.com/questions/14809528/why-does-js-code-var-a-document-queryselectoradata-a-1-cause-error <--deal with variables as attribute content input
+    //https://www.w3schools.com/jsref/prop_node_textcontent.asp  <--to get text content
+    function endangeredSpecies(continent, species) {
+        // Your code goes here
+        var a = document.querySelector(`ul[data-continent="${continent}"]`);
+        var p = a.querySelectorAll(`li[data-species="${species}"]`);
+        // return p.toString();
+        // return Object.keys(p);
+        return p[0].textContent;
+    }
+
+    // Example case
+    document.body.innerHTML =
+        `<div>
+  <ul data-continent="North America">
+    <li data-species="California condor">Critically Endangered</li>
+    <li data-species="American bison">Near Threatened</li>
+  </ul>
+  <ul data-continent="Europe">
+    <li data-species="Cave bear">Extinct</li>
+  </ul>
+</div>`;
+
+    console.log(endangeredSpecies('North America', 'American bison')); // should print 'Near Threatened'
+</script>
+</body>
+</html>

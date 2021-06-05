@@ -20,16 +20,16 @@ var embeddedPromise = new Promise(function(resolve, reject) {
 
 
 
-  embeddedPromise.then(result=>{
-      console.log("show first promise return:"+result.content);
-      return result.content; 
-  }).then(result=>{
-      console.log("show second promise return:"+result.video);
-      return result.address; 
-  }).then( result=>{
-      console.log("show third promise return:"+result.street);
-      return result.postcode; 
-  }); 
+  // embeddedPromise.then(result=>{
+  //     console.log("show first promise return:"+result.content);
+  //     return result.content;
+  // }).then(result=>{
+  //     console.log("show second promise return:"+result.video);
+  //     return result.address;
+  // }).then( result=>{
+  //     console.log("show third promise return:"+result.street);
+  //     return result.postcode;
+  // });
 
 
   embeddedPromise.then(result=>{
@@ -39,7 +39,7 @@ var embeddedPromise = new Promise(function(resolve, reject) {
       })
 }).then(result=>{
     console.log("show second promise return:"+result.street);
-    return result.street; 
+    return result.street;
 }).then( result=>{
     console.log("show third promise return:"+result);
 }).catch(error=>{

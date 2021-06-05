@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    console.log("\u{20BB7}");
+    console.log("\u{674E}");
+    console.log("\u{10000}");
+
+    var s="𠮷a";
+    for (let ch of s) {
+        console.log(ch.codePointAt(0).toString(16));
+    }
+</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="my_table" onclick="console.log(this.id);"><!-- `this` refers to the table; logs 'my_table' -->
+    <tr><td>my_table</td></tr>
+</table>
+
+
+<table id="my_table2" onclick="logID();"><!-- when called, `this` will refer to the global object -->
+    <tr><td>my_table2</td></tr>
+</table>
+</body>
+<script>
+    function logID() { console.log(this.id); }
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="font-weight:bold;">
+<div style="color:red" id="myElement">..</div>
+<script>
+    var element = document.getElementById("myElement");
+    var out = "";
+    var elementStyle = element.style;
+    var computedStyle = window.getComputedStyle(element, null);
+
+    for (prop in elementStyle) {
+        if (elementStyle.hasOwnProperty(prop)) {
+            out += "  " + prop + " = '" + elementStyle[prop] + "' > '" + computedStyle[prop] + "'\n";
+        }
+    }
+    console.log(out)
+</script>
+</body>
+</html>

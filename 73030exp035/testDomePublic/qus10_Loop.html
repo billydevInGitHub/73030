@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+asfsaf
+<button onclick="appendChildren(function(div) {})" >click</button>
+
+<script>
+    //
+
+    function appendChildren(decorateDiv) {
+        var allDivsWithID = document.querySelectorAll("div[id]");
+        for (var i = 0; i < allDivsWithID.length; i++) {
+            var newDiv = document.createElement("div");
+            decorateDiv(newDiv);
+            allDivsWithID[i].appendChild(newDiv);
+        }
+        var allDivs=document.getElementsByTagName("div");
+        var strHtml=document.body.innerHTML;
+        console.log(strHtml);
+    }
+
+    // Example case.  the following code is used to debug the case <--very important
+//     document.body.innerHTML = `
+// <button onclick="appendChildren(function(div) {})" >click</button>
+// <div id="a">
+//   <div id="b">
+//   </div>
+// </div>`;
+
+    // Example case.
+    document.body.innerHTML = `
+    <div id="a">
+      <div id="b">
+      </div>
+    </div>`;
+
+
+    appendChildren(function(div) {});
+    console.log(document.body.innerHTML);
+</script>
+</body>
+</html>

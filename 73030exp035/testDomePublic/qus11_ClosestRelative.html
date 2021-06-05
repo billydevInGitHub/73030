@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function closestRelative(parent, relativeName) {
+        // Your code goes here
+
+        console.log("parent:" + parent.tagName);
+        let children = parent.querySelectorAll(relativeName);
+        console.log("children:"+children.length);
+        if(children&&children[0]){
+            return children[0]
+        } else{
+            return null
+        }
+    }
+
+    // Example case
+    document.body.innerHTML =
+        '<James>' +
+        '<Dave></Dave>' +
+        '<Mike></Mike>' +
+        '<Sarah></Sarah>' +
+        '</James>';
+
+    let parent = document.getElementsByTagName('James')[0];
+    let relative = closestRelative(parent, 'Mike');
+    console.log(relative && relative.tagName); // prints MIKE
+</script>
+</body>
+</html>

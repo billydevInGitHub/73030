@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Check console
+</body>
+<script>
+
+    let map0 = new Map().set(1, 'a').set(2, 'b').set(3, 'cache');
+    // let map0={1:'a',2:'b', 3: 'cache'}
+
+    map0.forEach(function (value, key, map) {
+        console.log("map key: %s  value: %s", key, value);
+    })
+
+    map0.forEach((value, key, map) => {
+        console.log("using arrow: map key: %s  value: %s", key, value);
+    })
+
+
+
+    let reporter={
+        reporter:function(key, value){
+            console.log("within reporter==== %s, %s", key, value);
+        }
+    }
+
+    map0.forEach(function (value, key, map) {
+        this.reporter(key, value);
+    }, reporter)
+
+    map0.forEach((value, key, map)=> {
+        this.reporter(key, value);
+    }, reporter)
+
+</script>
+</html>

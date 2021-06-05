@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Title</title>
+</head>
+<body>
+
+<script>
+    //https://stackoverflow.com/questions/46665554/remove-parent-element-on-click-with-plain-javascript/46665594
+
+    function setup() {
+        // Write your code here.
+        var btn=document.getElementsByClassName("remove");
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener("click", function (e) {
+                e.currentTarget.parentNode.remove()
+            }, false);
+        }
+    }
+
+    // Example case.
+    document.body.innerHTML = `
+<div class="image">
+  <img src="https://goo.gl/kjzfbE" alt="First">
+  <button class="remove">X</button>
+</div>
+<div class="image">
+  <img src="https://goo.gl/kjzfbE" alt="First">
+  <button class="remove">X</button>
+</div>
+<div class="image">
+  <img src="https://goo.gl/kjzfbE" alt="First">
+  <button class="remove">X</button>
+</div>
+<div class="image">
+  <img src="https://goo.gl/d2JncW" alt="Second">
+  <button class="remove">X</button>
+</div>`;
+
+    setup();
+
+    document.getElementsByClassName("remove")[0].click();
+    console.log(document.body.innerHTML);
+</script>
+</body>
+</html>

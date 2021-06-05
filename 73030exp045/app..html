@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="my-button-id">test</button>
+</body>
+<script>
+    const myButton = document.getElementById('my-button-id');
+    let someString = 'Data';
+
+    myButton.addEventListener('click', function() {
+        console.log(someString);  // Expected Value: 'Data'
+
+        someString = 'Data Again';
+    });
+
+    console.log(someString);  // Expected Value: 'Data' (will never output 'Data Again')
+</script>
+</html>
